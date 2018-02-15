@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-6">
+    <h2><i class="fa fa-book"></i>Universities</h2>
+
+  </div>
+</div>
+<br>
+<table class="table table-striped" *ngIf="univ?.length > 0; else noClients">
+  <thead class="thead-inverse">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Full Name</th>
+    <th>Adress</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let univ of univ">
+    <td>{{univ.$key}}</td>
+    <td>{{univ.name}}</td>
+    <td>{{univ.full_name}}</td>
+    <td>{{univ.adress}}</td>
+    <td>{{univ.lat}}</td>
+    <td>{{univ.long}}</td>
+    <td><a [routerLink]="['/details/'+univ.$key]"    href="" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
+  </tr>
+  </tbody>
+
+</table>
+<ng-template #noClients>
+  <hr>
+  <h5>There are no universities in the system</h5>
+</ng-template>
