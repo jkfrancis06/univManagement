@@ -12,9 +12,38 @@ import {Adresses} from '../../models/Adresses';
 })
 export class AddTelComponent implements OnInit {
 
-  constructor() { }
+  id: string;
+  univ: University;
+  adress: Adresses = {
+    tel1: '',
+    tel2: '',
+    mail: '',
+    adress: '',
+    localIndication: '',
+    long: '',
+    lat: '',
+  }
+
+  constructor(public route: ActivatedRoute, public router: Router,public schoolService: SchoolsService) { }
 
   ngOnInit() {
+    this.id = this.route.snapshot.params['id'];
+    console.log(this.id);
+
+    this.schoolService.loadUniv(this.id).subscribe(
+      univ => {
+        this.univ = univ;
+
+        console.log(this.univ);
+      }
+    );
+
+  }
+
+  onSubmit({value, valid}: {value: Adresses, valid: boolean}) {
+    console.log(value);
+    this.schoolService.addAdress(this.id, value);
+    this.router.navigate(['/add-filieres/' + this.id]);
   }
 
 }

@@ -1,3 +1,112 @@
-<p>
-  add-tel works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink = '/' class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i> Back to Dashboard</a>
+  </div>
+</div>
+<hr>
+<!-- Display all the clients with information -->
+
+<form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+  <div *ngIf="univ" class="card">
+    <h3 class="card-header">{{univ.name}}</h3>
+    <div class="card-block">
+      <hr>
+
+     <div class="form-group">
+       <label for="tel1"> Tel1</label>
+       <input type="text"
+              class="form-control"
+              [(ngModel)]="adress.tel1"
+              name="tel1"
+              #clientFirstName="ngModel"
+              minlength="2"
+              required
+
+       >
+     </div>
+
+      <div class="form-group">
+        <label for="tel2"> Tel2</label>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="adress.tel2"
+               name="tel2"
+               #clientFirstName="ngModel"
+               minlength="2"
+               required
+
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="mail"> Mail</label>
+        <input type="email"
+               class="form-control"
+               [(ngModel)]="adress.mail"
+               name="mail"
+               #clientFirstName="ngModel"
+               minlength="2"
+               required
+
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="adress"> Adress</label>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="adress.adress"
+               name="adress"
+               #clientFirstName="ngModel"
+               minlength="2"
+               required
+
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="ind"> Local Indication</label>
+        <textarea type="text"
+               class="form-control"
+               [(ngModel)]="adress.localIndication"
+               name="localIndication"
+               #clientFirstName="ngModel"
+               minlength="2"
+               required
+
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="lat"> Latitude</label>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="adress.lat"
+               name="lat"
+               #clientFirstName="ngModel"
+               minlength="2"
+               required
+
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="long"> Longitude</label>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="adress.long"
+               name="long"
+               #clientFirstName="ngModel"
+               minlength="2"
+               required
+
+        >
+      </div>
+
+    </div>
+
+  </div>
+
+  <input type="submit" class="btn btn-primary btn-block" value="Submit and Channels">
+</form>

@@ -27,6 +27,8 @@ import { AddComponent } from './components/add/add.component';
 
 import {SchoolsService} from './services/schools.service';
 import { AddTelComponent } from './components/add-tel/add-tel.component';
+import { AddFilieresComponent } from './components/add-filieres/add-filieres.component';
+import { AddMatieresComponent } from './components/add-matieres/add-matieres.component';
 
 // Component Imports
 const routes: Routes = [
@@ -34,6 +36,8 @@ const routes: Routes = [
   {path: 'details/:id', component: DetailsComponent},
   {path: 'edit/:id', component: EditComponent},
   {path: 'add-tel/:id', component: AddTelComponent},
+  {path: 'add-filieres/:id', component: AddFilieresComponent},
+  {path: 'add-matieres/:ecol/:id', component: AddMatieresComponent},
   {path: 'login', component: LoginComponent},
   {path: 'add', component: AddComponent }
 ];
@@ -59,7 +63,9 @@ export const firebaseConfig = {
     SidebarComponent,
     LoginComponent,
     AddComponent,
-    AddTelComponent
+    AddTelComponent,
+    AddFilieresComponent,
+    AddMatieresComponent
   ],
   imports: [
     BrowserModule,

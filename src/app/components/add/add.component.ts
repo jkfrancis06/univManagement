@@ -21,23 +21,15 @@ export class AddComponent implements OnInit {
     long: '',
   }
 
-  nb_adresses : number;
-
-  tel: Adresses = {
-    tel: ''
-  }
-
   constructor(public flashMessagesService: FlashMessagesService,public schoolservice: SchoolsService, public router: Router) { }
   ngOnInit() {
   }
 
   onSubmit({value, valid}: {value: University, valid: boolean}) {
     console.log(value);
-    this.schoolservice.addUniv(value);
+    const temp = this.schoolservice.addUniv(value);
     console.log('Valid');
-
-    console.log(value.$key);
-    // this.router.navigate(['/add-tel/' + value.$key]);
+    this.router.navigate(['/add-tel/' + temp]);
   }
 
 }
