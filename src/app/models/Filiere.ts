@@ -3,5 +3,6 @@ export interface Filiere {
   name?: string;
   fullname?: string;
   cycle?: string;
+  matieres?: any;
 
 }

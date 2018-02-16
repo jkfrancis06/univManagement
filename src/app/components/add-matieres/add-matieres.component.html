@@ -1,24 +1,42 @@
-
 <div class="card">
   <div class="card-header">
     Add Matieres
   </div>
 
-
-  <!--<table class="table table-striped">
+  <table class="table table-striped">
     <thead class="thead-inverse">
     <tr>
-      <th>ID</th>
       <th>Name</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let univ of matieres">
-      <td>{{univ.$key}}</td>
-      <td>{{univ.name}}</td>
+    <tr *ngFor="let mat of mat">
+      <td>{{mat.name}}</td>
     </tr>
     </tbody>
 
-  </table>-->
+  </table>
+
+  <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form-group">
+      <label for="name"> Name</label>
+      <input type="text"
+             class="form-control"
+             [(ngModel)]="matieres.name"
+             name="name"
+             #clientFirstName="ngModel"
+             minlength="2"
+             required
+
+      >
+    </div>
+    <div class="form-group align-content-center">
+      <input (click)="addFiliere()" class="btn btn-default col-4" value="Ajouter une autre filiere">
+      <input type="submit" class="btn btn-primary col-4" value="Add">
+    </div>
+    <div class="form-group">
+      <a routerLink="/" href="#" class="btn btn-success btn-block">Terminer</a>
+    </div>
+  </form>
 
 </div>

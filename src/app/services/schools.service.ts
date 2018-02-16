@@ -17,12 +17,14 @@ import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } 
 export class SchoolsService {
 
 
-  universities: FirebaseListObservable<University[]>;
-  univ: FirebaseObjectObservable<any>;
 
-  adresses : FirebaseListObservable<Adresses[]>
-  filieres : FirebaseListObservable<Filiere[]>
-  matieres : FirebaseListObservable<Matieres[]>
+  univ: FirebaseObjectObservable<any>;
+  matiere: FirebaseObjectObservable<any>;
+
+  universities: FirebaseListObservable<University[]>;
+  adresses: FirebaseListObservable<Adresses[]>
+  filieres: FirebaseListObservable<Filiere[]>
+  matieres: FirebaseListObservable<Matieres[]>
 
   constructor(public af: AngularFireDatabase) {
 
@@ -64,9 +66,13 @@ export class SchoolsService {
     return(temp.key);
   }
 
-  getMatieres (id, value){
-    this.matieres = this.af.list('/') as FirebaseListObservable<University[]>;
+  getMatieres (id, key) {
+     this.matieres = this.af.list('/' + id + '/filieres/' + key + '/matieres') as FirebaseListObservable<Matieres[]>;
+     return this.matieres;
+  }
 
+  addMatiere(value) {
+    return this.matieres.push(value);
   }
 
 

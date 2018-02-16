@@ -44,7 +44,20 @@
         <!-- Error Output for minlength length -->
       </div>
 
-      <input type="submit" class="btn btn-primary btn-block" value="Submit and Add telephone Numbers">
+      <div class="form-group">
+        <input type="hidden"
+               class="form-control"
+               [(ngModel)]="filiere.matieres"
+               name="matieres"
+               #clientPhone="ngModel"
+               minlength="2"
+               value=""
+
+        >
+        <!-- Error Output for minlength length -->
+      </div>
+
+      <input type="submit" class="btn btn-primary btn-block" value="Submit and Add Matieres">
     </form>
   </div>
 
