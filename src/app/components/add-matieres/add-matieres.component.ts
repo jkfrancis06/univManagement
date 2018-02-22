@@ -16,6 +16,7 @@ export class AddMatieresComponent implements OnInit {
     name: ''
   };
   mat: any[];
+  temp: string;
 
   constructor(public route: ActivatedRoute, public router: Router,public schoolService: SchoolsService) { }
 
@@ -23,19 +24,22 @@ export class AddMatieresComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.ecol = this.route.snapshot.params['ecol'];
     console.log(this.id, this.ecol);
-
-    /*this.schoolService.getMatieres().subscribe(
+    this.schoolService.getMatieres(this.ecol, this.id).subscribe(
       matieres => {
         this.mat = matieres;
         console.log(this.mat);
-      });*/
+      });
   }
 
   onSubmit({value, valid}: {value: Matieres, valid: boolean}) {
     console.log(value);
-    // let key = this.schoolService.addFiliere(this.id, value);
-    //  console.log('ok');
+    this.schoolService.addMatierer(this.ecol, this.id , value);
+    console.log('ok');
    // this.router.navigate(['/add-matieres/' + key]);
+  }
+
+  retour() {
+    this.router.navigate(['/add-matieres/' + this.ecol]);
   }
 
 }

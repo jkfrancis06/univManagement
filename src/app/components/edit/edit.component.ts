@@ -16,9 +16,7 @@ export class EditComponent implements OnInit {
   univ : University = {
     name : '',
     fullname: '',
-    adress: '',
-    lat: '',
-    long: ''
+    adress: ''
   }
 
   constructor( public schoolservice: SchoolsService, public router: Router, public route: ActivatedRoute) { }

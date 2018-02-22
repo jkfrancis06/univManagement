@@ -64,9 +64,14 @@ export class SchoolsService {
     return(temp.key);
   }
 
-  getMatieres (id, value){
-    this.matieres = this.af.list('/') as FirebaseListObservable<University[]>;
+  getMatieres (ecol, id) {
+    this.matieres = this.af.list('/' + ecol + '/filieres/' + id + 'matiere' ) as FirebaseListObservable<Matieres[]>;
+    return this.matieres;
+  }
 
+  addMatierer(ecol, id, value) {
+    this.matieres = this.af.list('/' + ecol + '/filieres/' + id + 'matiere' ) as FirebaseListObservable<Matieres[]>;
+    this.matieres.push(value);
   }
 
 

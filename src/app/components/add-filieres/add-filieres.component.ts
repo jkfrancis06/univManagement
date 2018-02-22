@@ -28,7 +28,7 @@ export class AddFilieresComponent implements OnInit {
 
   onSubmit({value, valid}: {value: Filiere, valid: boolean}) {
     console.log(value);
-    let key = this.schoolService.addFiliere(this.id, value);
+    const key = this.schoolService.addFiliere(this.id, value);
     console.log('ok');
     this.router.navigate(['/add-matieres/' + this.id + '/' + key]);
   }

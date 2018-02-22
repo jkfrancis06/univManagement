@@ -5,7 +5,7 @@
   </div>
 
 
-  <!--<table class="table table-striped">
+  <table class="table table-striped">
     <thead class="thead-inverse">
     <tr>
       <th>ID</th>
@@ -13,12 +13,36 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let univ of matieres">
-      <td>{{univ.$key}}</td>
-      <td>{{univ.name}}</td>
+    <tr *ngFor="let mat of mat">
+      <td>{{mat.$key}}</td>
+      <td>{{mat.name}}</td>
     </tr>
     </tbody>
 
-  </table>-->
+  </table>
+
+
+  <div class="card" style="margin-top: 5%">
+    <div class="card-header">Add matiere</div>
+    <div class="card-body">
+      <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="input-group">
+          <input type="text"
+                 class="form-control"
+                 [(ngModel)]="matieres.name"
+                 placeholder="Enter name"
+                 name="name"
+                 #clientFirstName="ngModel"
+                 minlength="2"
+                 required
+
+          >
+          <button type="submit" class="btn btn-primary input-group-btn" value="add">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <button (click)="retour()" class="btn btn-block btn-link btn-info">Save and add other filere</button>
 
 </div>

@@ -9,7 +9,7 @@
 
 <div class="card">
   <div class="card-header">
-    Add Client
+    Add University
   </div>
   <div class="card-block">
     <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
@@ -40,30 +40,20 @@
       </div>
 
       <div class="form-group">
-        <label for="lat">Latitude</label>
-        <input type="text"
-               class="form-control"
-               [(ngModel)]="univ.lat"
-               name="lat"
-               #clientPhone="ngModel"
-               minlength="2"
+        <div *ngIf="currentFileUpload" class="progress" style="width:400px">
+          <div class="progress-bar progress-bar-info progress-bar-striped"
+               role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+               aria-valuemin="0" aria-valuemax="100"
+               [ngStyle]="{width:progress.percentage+'%'}">
+            {{progress.percentage}}%</div>
+        </div>
 
-        >
-        <!-- Error Output for minlength length -->
+        <label class="btn btn-default"> <input type="file"
+                                               (change)="selectFile($event)">
+        </label>
       </div>
 
-
-      <div class="form-group">
-        <label for="long">Longitude</label>
-        <input type="text"
-               class="form-control"
-               [(ngModel)]="univ.long"
-               name="long"
-               #clientBalance="ngModel"
-        >
-      </div>
-
-      <input type="submit" class="btn btn-primary btn-block" value="Submit and Add telephone Numbers">
+      <input type="submit" [disabled]="!selectedFiles" class="btn btn-primary btn-block" value="Submit and Add telephone Numbers">
     </form>
   </div>
 

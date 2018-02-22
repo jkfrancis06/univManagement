@@ -13,6 +13,8 @@ import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import {FlashMessagesService} from 'angular2-flash-messages';
 
+import {UploadFileService} from './services/upload-file.service';
+
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -40,7 +42,7 @@ const routes: Routes = [
   {path: 'add-matieres/:ecol/:id', component: AddMatieresComponent},
   {path: 'login', component: LoginComponent},
   {path: 'add', component: AddComponent }
-];
+]
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -78,7 +80,8 @@ export const firebaseConfig = {
   providers: [
     AngularFireDatabase,
     SchoolsService,
-    FlashMessagesService
+    FlashMessagesService,
+    UploadFileService
   ],
   bootstrap: [AppComponent]
 })

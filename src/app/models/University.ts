@@ -3,7 +3,7 @@ export interface University {
   name?: string;
   fullname?: string;
   adress?: any; // tel numbers a json object array
-  lat?: string;
-  long?: string;
+  picUrl?: string;
+  picName?: string;
 
 }
