@@ -12,6 +12,8 @@ export class DetailsComponent implements OnInit {
 
   id: string;
   univ: University;
+  adress: any;
+  filieres: any;
 
   constructor( public route: ActivatedRoute, public router: Router,public schoolService: SchoolsService) { }
 
@@ -26,6 +28,22 @@ export class DetailsComponent implements OnInit {
         console.log(this.univ);
       }
     );
+
+    this.schoolService.loadUnivAdress(this.id).subscribe(
+      adress => {
+        this.adress = adress;
+      }
+    );
+
+    this.schoolService.loadUnivFilieres(this.id).subscribe(
+      filiere => {
+        this.filieres = filiere;
+
+        console.log(this.filieres);
+      }
+    );
+
+    console.log(this.adress);
   }
 
   onDeleteClick() {

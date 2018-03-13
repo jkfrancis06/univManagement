@@ -20,9 +20,9 @@ export class SchoolsService {
   universities: FirebaseListObservable<University[]>;
   univ: FirebaseObjectObservable<any>;
 
-  adresses : FirebaseListObservable<Adresses[]>
-  filieres : FirebaseListObservable<Filiere[]>
-  matieres : FirebaseListObservable<Matieres[]>
+  adresses: FirebaseListObservable<Adresses[]>
+  filieres: FirebaseListObservable<Filiere[]>
+  matieres: FirebaseListObservable<Matieres[]>
 
   constructor(public af: AngularFireDatabase) {
 
@@ -45,6 +45,16 @@ export class SchoolsService {
     return this.univ;
   }
 
+  loadUnivAdress(id){
+    this.adresses = this.af.list('/' + id + '/adresses') as FirebaseListObservable<Adresses[]>;
+    return this.adresses;
+  }
+
+  loadUnivFilieres(id){
+    this.filieres = this.af.list('/' + id + '/filieres') as FirebaseListObservable<Filiere[]>
+    return this.filieres;
+  }
+
   deleteSchool(id) {
     return this.universities.remove(id);
   }
@@ -65,12 +75,12 @@ export class SchoolsService {
   }
 
   getMatieres (ecol, id) {
-    this.matieres = this.af.list('/' + ecol + '/filieres/' + id + 'matiere' ) as FirebaseListObservable<Matieres[]>;
+    this.matieres = this.af.list('/' + ecol + '/filieres/' + id + '/matiere' ) as FirebaseListObservable<Matieres[]>;
     return this.matieres;
   }
 
   addMatierer(ecol, id, value) {
-    this.matieres = this.af.list('/' + ecol + '/filieres/' + id + 'matiere' ) as FirebaseListObservable<Matieres[]>;
+    this.matieres = this.af.list('/' + ecol + '/filieres/' + id + '/matiere' ) as FirebaseListObservable<Matieres[]>;
     this.matieres.push(value);
   }
 

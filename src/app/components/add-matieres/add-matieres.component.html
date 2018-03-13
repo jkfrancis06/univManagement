@@ -1,14 +1,16 @@
-
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink = '/' class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i> Back to Dashboard</a>
+  </div>
+</div>
 <div class="card">
   <div class="card-header">
     Add Matieres
   </div>
-
-
   <table class="table table-striped">
     <thead class="thead-inverse">
     <tr>
-      <th>ID</th>
+      <th>id</th>
       <th>Name</th>
     </tr>
     </thead>
@@ -20,7 +22,6 @@
     </tbody>
 
   </table>
-
 
   <div class="card" style="margin-top: 5%">
     <div class="card-header">Add matiere</div>
@@ -43,6 +44,5 @@
     </div>
   </div>
 
-  <button (click)="retour()" class="btn btn-block btn-link btn-info">Save and add other filere</button>
-
+  <button (click)="return()" class="btn btn-block btn-link btn-info">Save and add other filere</button>
 </div>

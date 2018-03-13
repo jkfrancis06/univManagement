@@ -23,9 +23,10 @@ export class AddComponent implements OnInit {
   univ: University = {
     name : '',
     fullname: '',
-    adress: '',
     picName: '',
-    picUrl: ''
+    picUrl: '',
+    description: '',
+    acceuil: 0
   };
   key: string;
 
@@ -40,7 +41,6 @@ export class AddComponent implements OnInit {
   onSubmit({value, valid}: {value: University, valid: boolean}) {
     console.log(this.univ)
     this.upload();
-    this.router.navigate(['/add-tel/' + this.key]);
   }
 
   selectFile(event) {
@@ -51,7 +51,11 @@ export class AddComponent implements OnInit {
     const file = this.selectedFiles.item(0)
     this.currentFileUpload = new FileUpload(file);
     this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress, this.univ);
-    this.key = this.uploadService.key;
+    console.log(this.uploadService.key);
+  }
+
+  next(){
+    this.router.navigate(['/add-tel/' + this.uploadService.key]);
   }
 
 }

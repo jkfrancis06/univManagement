@@ -40,6 +40,28 @@
       </div>
 
       <div class="form-group">
+        <label for="full_name">Page d'acceuil</label>
+        <select class="form-control" [(ngModel)]="univ.acceuil" required="" >
+          <option disabled>Choose option</option>
+          <option value="0">Non</option>
+          <option value="1">Oui</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="full_name">Description</label>
+        <textarea type="text"
+               class="form-control"
+               [(ngModel)]="univ.description"
+               name="full_name"
+               #clientLastName="ngModel"
+               minlength="2"
+               required
+
+        > </textarea>
+      </div>
+
+      <div class="form-group">
         <div *ngIf="currentFileUpload" class="progress" style="width:400px">
           <div class="progress-bar progress-bar-info progress-bar-striped"
                role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
@@ -53,7 +75,8 @@
         </label>
       </div>
 
-      <input type="submit" [disabled]="!selectedFiles" class="btn btn-primary btn-block" value="Submit and Add telephone Numbers">
+      <button type="submit" [disabled]="!selectedFiles" class="btn btn-primary" value="Upload">Upload</button>
+      <button (click)="next()" class="btn btn-success">Next <span class="fa fa-next"></span></button>
     </form>
   </div>
 

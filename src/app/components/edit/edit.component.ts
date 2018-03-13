@@ -13,10 +13,11 @@ export class EditComponent implements OnInit {
 
   id: string;
 
-  univ : University = {
+  univ: University = {
     name : '',
     fullname: '',
-    adress: ''
+    description: '',
+    acceuil: 0
   }
 
   constructor( public schoolservice: SchoolsService, public router: Router, public route: ActivatedRoute) { }

@@ -38,8 +38,8 @@ export class AddMatieresComponent implements OnInit {
    // this.router.navigate(['/add-matieres/' + key]);
   }
 
-  retour() {
-    this.router.navigate(['/add-matieres/' + this.ecol]);
+  return() {
+    this.router.navigate(['/add-filieres/' + this.ecol]);
   }
 
 }
